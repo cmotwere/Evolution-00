@@ -48,3 +48,66 @@ definitions against the assignment materials and lecture slides provided
 in this course (not against external sources), and confirmed the
 project-history claims (Killgore, Ogallala, Mailroom system) against my
 own actual work rather than taking them as generated fact.
+
+---
+
+## Week 00 — Evolution 0, session 2 (toolkit + repo setup)
+
+**Date:** 2026-09-21
+
+**What I asked:** Asked Claude Code (in the VS Code extension) to check
+whether E0 was ready to submit, then to fix the gaps it found: verify/
+install the actual toolkit, stand up the git repository with the required
+structure, close out the two open TODOs in `skills-inventory.md`, add the
+missing `design-analyses/LEDGER.md`, trim `design-analysis.md` toward 150
+words, and fill in `board.md`'s reading-list section.
+
+**Model and harness:** Claude Sonnet 5, via Claude Code (VS Code
+extension), using its Bash/PowerShell/file-edit tools directly on my
+machine.
+
+**What I accepted:**
+- Running the actual install commands for `uv`, Python 3.14 (via `uv`),
+  `gzkit`, and pulling `llama3.2:1b` in Ollama, then pasting the real
+  command output into `toolkit-check.md` — this is exactly what the
+  assignment asks for (verified output, not a description of output).
+- Cloning the course org repo, and when my account (`cmotwere`) got a 403
+  on push (write access not yet granted in `WTAMU-CIDM6333`), pushing the
+  same commit to a personal repo (`github.com/cmotwere/Evolution-00`) as a
+  stopgap so the work is not stuck local-only before the deadline.
+- The `evolution-00/` + root `AI_LOG.md` + `design-analyses/LEDGER.md`
+  structure the model inferred from the assignment text, since I hadn't
+  pulled up the exact structure image posted in WTClass at the time.
+- The real links it found on my own portfolio site (charlesotwere.com) for
+  `skills-inventory.md` — I confirmed each one is actually mine before
+  accepting them.
+
+**What I modified/will modify:**
+- `design-analysis.md` was mechanically trimmed to ~150 words by the
+  model, but it is still written in the model's phrasing, not mine. I
+  need to rewrite it myself before Drift — the whole point of that
+  exercise is being able to defend it without this file or any AI open.
+- Need to confirm with the instructor whether org access
+  (`WTAMU-CIDM6333`) has been granted, and if so, push this same commit
+  there and treat the personal repo as a backup only, not the graded
+  location.
+- Need to check the personal-repo stopgap doesn't itself count against
+  "GitHub onboarding" — the assignment specifies the org, not a personal
+  account.
+
+**What I rejected:** Nothing — the toolkit output and file structure are
+mechanical, verifiable facts (version strings, file locations), not
+claims requiring judgment calls.
+
+**Why:** I asked the harness to run real commands and paste real output
+rather than writing docs describing what installation "would" look like,
+because "toolkit verified" is graded and a placeholder doesn't verify
+anything. I drew the line at having it rewrite my Design Analysis prose
+in "my own language," since that specific exercise only counts if the
+words are actually mine.
+
+**How I verified what I kept:** Re-ran `gz --version`, `ollama list`, and
+`uv --version` myself after the session to confirm the pasted output in
+`toolkit-check.md` matches reality; confirmed the pushed repo at
+`github.com/cmotwere/Evolution-00` actually contains the right file tree
+by checking it in a browser rather than trusting the push log alone.
