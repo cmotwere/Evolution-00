@@ -111,3 +111,62 @@ words are actually mine.
 `toolkit-check.md` matches reality; confirmed the pushed repo at
 `github.com/cmotwere/Evolution-00` actually contains the right file tree
 by checking it in a browser rather than trusting the push log alone.
+
+---
+
+## AGENTS.md Lab (catch-up — missed the 09/17 in-class session)
+
+**Date:** 2026-09-21
+
+**What I asked:** Asked Claude Code to complete the AGENTS.md lab I'd
+missed: draft an AGENTS.md for the system under the 4,000-character
+budget, measure what OpenCode's `opencode/big-pickle` model actually
+loads from it versus a baseline, verify verbatim recall of one line, and
+compare against `/init`'s generated output.
+
+**Model and harness:** Claude Sonnet 5, via Claude Code (VS Code
+extension), which in turn drove `opencode run` non-interactively
+(OpenCode 1.18.21, model `opencode/big-pickle`) to produce the actual
+measurements.
+
+**What I accepted:**
+- The AGENTS.md content itself: since this system has no code yet
+  (Evolution 0 is still docs/decisions), the file is scoped to what's
+  real right now — pointers to `pitch.md`/`choices.md`/`toolkit-check.md`,
+  an explicit "don't invent run/test commands, none exist yet" line, and
+  rules drawn from actual mistakes made in this repo's own AI_LOG (see
+  the two "got wrong twice" / "re-explained" lists in
+  `evolution-03/agents-md-measurement.md`), not invented ones.
+- The real measured numbers: 2,163 characters on disk; 9,220 baseline
+  input tokens vs. 9,816 with the file present (596-token delta, ~27.6%
+  of the byte count, matching the lab's predicted quarter-to-third
+  range); verbatim recall of the test-command line confirmed word for
+  word; `/init`'s generated file at 2,610 bytes for comparison.
+- The `CLAUDE.md` bridge (`@AGENTS.md`) so Claude Code picks up the same
+  map, per the lab's own note that Claude Code imports AGENTS.md rather
+  than reading it directly.
+
+**What I rejected:**
+- Running `gz init` to record a real gzkit ledger event for the commit.
+  It also scaffolds a Python project skeleton and picks a governance
+  mode (`lite`/`heavy`) — a real structural decision for the semester
+  system, not something a 30-minute instruction-file lab should trigger
+  as a side effect. Left as a documented pending item instead.
+- Fabricating the Chase peer-swap step. I don't have a partner's real
+  read of the file, so `evolution-03/agents-md-measurement.md` marks
+  Chase partner/probe results/verdict as pending rather than inventing
+  plausible-sounding findings — the whole point of that step is a cold
+  read from someone who didn't write the file.
+
+**Why:** The lab's own claim is that an instruction file should be a map,
+not an encyclopedia — restating anything derivable from the code is
+wasted budget. Since the "code" here is really the rest of this repo's
+docs, I had it ground every AGENTS.md line in something a peer or a
+future me could actually check, and refuse to manufacture the two things
+(a live peer, a governance-mode decision) that aren't mine to invent.
+
+**How I verified what I kept:** Re-ran the `opencode run` probes myself
+after the fact to confirm the token counts were stable across repeats;
+read the `/init`-generated file in the scratch copy directly rather than
+trusting a description of it; confirmed `AGENTS.md` (2,163 chars) is well
+under the 4,000-character budget with `wc -c`.
